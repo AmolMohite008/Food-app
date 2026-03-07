@@ -7,7 +7,7 @@ import cors from'cors'
 import connectDb from "./ConfigDb/db.js";
 import FoodRoutes from './Routes/FoodRoutes.js'
 import UserRoute from './Routes/UserRoute.js'
-import carRoutes from "./Routes/cartRoutes.js"
+import cartRoutes from "./Routes/cartRoutes.js"
 import orderRoutes from "./Routes/orderRoutes.js"
 import { protect } from "./Controllers/UserController.js";
 
@@ -32,14 +32,14 @@ connectDb()
 app.use("/uploads", express.static("uploads"));//Static folder serve karo Taaki frontend image dekh sake.
 app.use('/api/food' ,FoodRoutes);
 app.use("/api/user" , UserRoute);
-app.use("/api/cart" ,protect ,carRoutes)
+app.use("/api/cart" ,protect ,cartRoutes)
 app.use("/api/order" ,protect , orderRoutes)
 app.get("/", (req, res) => {                 
   res.send("amol");
 });
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
 
