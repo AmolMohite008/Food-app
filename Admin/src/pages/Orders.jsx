@@ -11,7 +11,7 @@ const Orders = () => {
 
   const getdata = async () =>{
 
-    const response = await axios.get("http://localhost:3000/api/order/allorderdata" ,{withCredentials:true})
+    const response = await axios.get("https://food-app-backend-2wqb.onrender.com/api/order/allorderdata" ,{withCredentials:true})
 
     if(response.data.success){
       setorders(response.data.data)
@@ -37,14 +37,7 @@ const handleStatusChange = async (orderId, status) => {
 
   try {
 
-    const response = await axios.post(
-      "http://localhost:3000/api/order/status",
-      {
-        orderId: orderId,
-        status: status
-      },
-      { withCredentials: true }
-    );
+    const response = await axios.post( "https://food-app-backend-2wqb.onrender.com/api/order/status",  { orderId: orderId,  status: status}, { withCredentials: true } );
 
     if(response.data.success){
       toast.success("Status Updated")

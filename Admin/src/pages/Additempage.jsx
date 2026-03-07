@@ -26,10 +26,7 @@ const Additempage = () => {
     console.log(formData);
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/food",
-        formData,
-      );
+      const response = await axios.post("https://food-app-backend-2wqb.onrender.com/api/food",formData, { withCredentials: true });
 
       //add notification
       toast.success(response.data.message);

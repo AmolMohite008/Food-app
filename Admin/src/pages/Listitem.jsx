@@ -8,7 +8,7 @@ const Listitem = () => {
   // getData ko component ke top-level me define karo
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/food");
+      const response = await axios.get("https://food-app-backend-2wqb.onrender.com/api/food" , { withCredentials: true });
       setfood(response.data.data);
     } catch (error) {
       console.log(error);
@@ -16,9 +16,7 @@ const Listitem = () => {
   };
 
   const removeFood = async (foodid) => {
-    const response = await axios.delete(
-      `http://localhost:3000/api/food/${foodid}`,
-    );
+    const response = await axios.delete( `https://food-app-backend-2wqb.onrender.com/api/food/${foodid}`, { withCredentials: true });
     // delete ke baad data refresh karo
     await getData();
 
@@ -60,7 +58,7 @@ const Listitem = () => {
               {/* Image */}
               <div className="sm:w-[20%]">
                 <img
-                  src={`http://localhost:3000/uploads/${item.image}`}
+                  src={`https://food-app-backend-2wqb.onrender.com/uploads/${item.image}`}
                   alt=""
                   className="w-16 h-16 object-cover rounded"
                 />
