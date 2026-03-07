@@ -3,9 +3,9 @@ import { StoreContext } from "../context/StoreContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { food_list, removecart, cartitem, setcartitem, getcartsubtotal } =  useContext(StoreContext);
+  const { food_list, removecart, cartitem, setcartitem, getcartsubtotal ,url } =  useContext(StoreContext);
 
-  console.log(cartitem);
+ // console.log(cartitem);
 
   return (
     <div className="max-w-6xl mx-auto px-4 my-16  text-gray-700 ">
@@ -27,7 +27,7 @@ const Cart = () => {
                 className="flex border-b border-gray-400 items-center py-4 text-black"
               >
                 <div className="w-[80px]">
-                  <img className="w-[60px] rounded" src={"http://localhost:3000/uploads/" +items.image} alt="" />
+                 <img className="w-[60px] rounded" src={url + "/uploads/" + items.image} alt="" />
                 </div>
                 <p className="flex-1 font-medium ml-3">{items.name}</p>
                 <p className="w-[100px] text-center">₹ {items.price}</p>

@@ -6,7 +6,7 @@ import { StoreContext } from '../context/StoreContext'
 
 const LoginPopup = ({setshowlogin}) => {
 
-  const {loggedInUser,setLoggedInUser} = useContext(StoreContext)
+  const {loggedInUser,setLoggedInUser ,url} = useContext(StoreContext)
 
      const [name, setname] = useState("")
      const [email, setemail] = useState("")
@@ -22,7 +22,7 @@ const LoginPopup = ({setshowlogin}) => {
         
      const formdata = currentstate === "signup" ?{name ,email ,password} :{email ,password}
 
-      const response = await axios.post(currentstate === "signup" ? "http://localhost:3000/api/user/signup" : "http://localhost:3000/api/user/login" ,formdata , { withCredentials: true })//withCredentials: true nahi likhoge → cookie save hi nahi hogi
+    const response = await axios.post( currentstate === "signup" ? url + "/api/user/signup" : url + "/api/user/login", formdata,{ withCredentials: true });//withCredentials: true nahi likhoge → cookie save hi nahi hogi
 
       setLoggedInUser(response.data.data)
 

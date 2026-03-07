@@ -13,23 +13,26 @@ const StoreContextProvider = ({ children }) => {
 const [loggedInUser, setLoggedInUser] = useState(null);
 
 
+
+ const url = "https://food-app-backend-2wqb.onrender.com"; // backend link
+
 // 🔐 Check Logged In User
  const checkuser = async () => {
   try {
-    const response = await axios.get( "http://localhost:3000/api/user/me",  { withCredentials: true } );
+  const response = await axios.get(url + "/api/user/me", { withCredentials: true });
 
      setLoggedInUser(response.data.data);
   } catch (error) {
      setLoggedInUser(null);
   }
 };
-console.log(loggedInUser)
+//console.log(loggedInUser)
 //fetch food data from nackend
 
 const fetchFood = async () =>{
   try{
 
-    const response = await axios.get("http://localhost:3000/api/food",  { withCredentials: true })
+   const response = await axios.get(url + "/api/food", { withCredentials: true })
 
     setfood_list(response.data.data)
   }catch(error){
@@ -48,7 +51,7 @@ useEffect(() => {
    }else {
     setcartitem({});   // ✅ logout hote hi cart clear
   }
-   console.log("User:", loggedInUser);
+   //console.log("User:", loggedInUser);
 }, [loggedInUser])
 
 
@@ -56,7 +59,7 @@ useEffect(() => {
 
    if(loggedInUser){
 
-      await axios.post("http://localhost:3000/api/cart/add",{itemid} , { withCredentials: true })
+     await axios.post(url + "/api/cart/add", { itemid }, { withCredentials: true })
     }
 
     
@@ -72,7 +75,7 @@ useEffect(() => {
 
      if(loggedInUser){
 
-      await axios.post("http://localhost:3000/api/cart/remove",{itemid} , { withCredentials: true })
+      await axios.post(url + "/api/cart/remove", { itemid }, { withCredentials: true })
     }
   };
 
@@ -81,8 +84,7 @@ useEffect(() => {
     try{
       
        if(!loggedInUser) return;//Return matlab brake laga diya condion ture ho to ruk jayega nahi to user login hai to niche vali api call hogi
-        const response = await axios.get("http://localhost:3000/api/cart/get" ,{ withCredentials: true })
-
+        const response = await axios.get(url + "/api/cart/get", { withCredentials: true })
     if(response.data.success){
       setcartitem(response.data.data)
  }
@@ -127,6 +129,7 @@ useEffect(() => {
      setLoggedInUser,
      loggedInUser,
      checkuser,
+     url,
   };
   return (
     <StoreContext.Provider value={contextValue}>

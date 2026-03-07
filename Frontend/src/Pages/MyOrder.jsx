@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { assets } from "../assets/assets";
+import { StoreContext } from "../context/StoreContext.jsx";
 
 const MyOrder = () => {
   const [ordersData, setordersData] = useState([]);
 
+   const { url } = useContext(StoreContext);
+
   const getorderData = async () => {
-    const response = await axios.get( "http://localhost:3000/api/order/myorder",{ withCredentials: true } );
+  const response = await axios.get(url + "/api/order/myorder", { withCredentials: true });
 
     setordersData(response.data.data);
   };
@@ -15,7 +18,7 @@ const MyOrder = () => {
     getorderData();
   }, []);
 
-  console.log(ordersData)
+//  console.log(ordersData)
 
   return (
     <div className="px-4 sm:px-8 md:px-16 py-8">

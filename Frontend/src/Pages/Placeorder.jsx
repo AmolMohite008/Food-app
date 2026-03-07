@@ -5,8 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Placeorder = () => {
-  const { food_list, getcartsubtotal, cartitem, setcartitem } =
-    useContext(StoreContext);
+  const { food_list, getcartsubtotal, cartitem, setcartitem ,url } = useContext(StoreContext);
 
   const [address, setaddress] = useState({
     firstName: "",
@@ -19,7 +18,7 @@ const Placeorder = () => {
     country: "",
     phone: "",
   });
-  console.log(address);
+  //console.log(address);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -41,11 +40,11 @@ const Placeorder = () => {
     const orderData = { address: address, items: orderItems, amount: getcartsubtotal() + 5,};
    
     //Api call 
-    const response = await axios.post("http://localhost:3000/api/order/place",orderData, { withCredentials: true },);
+   const response = await axios.post(url + "/api/order/place", orderData, { withCredentials: true });
 
     //add notification
     toast.success(response.data.message);
-    console.log(response.data);
+    //console.log(response.data);
 
     setcartitem({}); // order succffull hone par cart khali ho
 
@@ -62,7 +61,7 @@ const Placeorder = () => {
       phone: "",
     });
 
-    console.log(orderData);
+    //console.log(orderData);
     // console.log(orderItems); ab cartitem is format dega [ { itemid: "...", quantity:"..." }]
   };
 

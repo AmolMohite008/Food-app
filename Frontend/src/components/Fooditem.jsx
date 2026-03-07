@@ -6,14 +6,14 @@ const Fooditem = ({ id, name, price, description, image }) => {
 
   
 
-  const {addToCart ,removecart ,cartitem} = useContext(StoreContext)
+  const {addToCart ,removecart ,cartitem ,url} = useContext(StoreContext)
 
   return (
     <div className='w-[220px] flex flex-col border rounded-xl overflow-hidden shadow-2xl'>
 
       {/* Image */}
       <div className='w-full h-[160px]'>
-        <img src={"http://localhost:3000/uploads/" +image} alt='food' className='w-full h-full object-cover' />
+      <img src={url + "/uploads/" + image} alt="food" className='w-full h-full object-cover' />
       </div>
 
       {/* Content */}

@@ -7,12 +7,12 @@ import axios from "axios";
 const Navbar = ({ setshowlogin }) => {
   const [menu, setMenu] = useState(" "); // ✅ string
 
-  const { getCartItemsCount ,loggedInUser,setLoggedInUser } = useContext(StoreContext);
+  const { getCartItemsCount ,loggedInUser,setLoggedInUser ,url } = useContext(StoreContext);
 
   const logoutHandler = async () =>{
     try{
 
-      const response = await axios.post("http://localhost:3000/api/user/logout" ,{},{ withCredentials: true })
+    const response = await axios.post(url + "/api/user/logout", {}, { withCredentials: true })
 
       setLoggedInUser(null)
 
