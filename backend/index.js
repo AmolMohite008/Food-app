@@ -32,10 +32,10 @@ connectDb()
 app.use("/uploads", express.static("uploads"));//Static folder serve karo Taaki frontend image dekh sake.
 app.use('/api/food' ,FoodRoutes);
 app.use("/api/user" , UserRoute);
-app.use("/api/cart" ,protect ,cartRoutes)
-app.use("/api/order" ,protect , orderRoutes)
+app.use("/api/cart" ,cartRoutes)
+app.use("/api/order" , orderRoutes)
 app.get("/", (req, res) => {                 
-  res.send("amol");
+  res.send("backend working");
 });
 const PORT = process.env.PORT || 3000;
 

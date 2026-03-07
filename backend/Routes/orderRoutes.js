@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post("/place" ,protect,placeOrder) 
 router.get("/myorder" ,protect,  getMyOrder)
-router.get("/allorderdata" ,getAllOrders)
-router.post("/status" ,deliveryState)
+router.get("/allorderdata" ,getAllOrders) // admin panel ke liye protect nahi lagaya abi tak role set nahi kiya
+router.post("/status" ,deliveryState)// admin panel ke liye protect nahi lagaya abi tak role set nahi kiya
 
 
 export default router
