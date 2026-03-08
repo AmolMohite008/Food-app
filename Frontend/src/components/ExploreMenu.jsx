@@ -9,9 +9,7 @@ const ExploreMenu = ({ category, setcategory }) => {
         <h1 className="text-3xl font-bold">Explore our menu</h1>
         <p className="text-gray-600 text-md leading-relaxed">
           Choose from a diverse menu feaature a delectable array of dishes crofted 
-          with the finest ingredients and culinery experties . Our mission to is to 
-          satisfy your craving and elevetred your dinning experinence , Once delicious 
-          meal at a time
+          with the finest ingredients and culinery experties .
         </p>
       </div>
 

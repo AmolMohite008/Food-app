@@ -4,8 +4,8 @@ import fs from "fs";
 // add food item
 export const addfood = async (req, res) => {
   try {
-    console.log("req.file =>", req.file);
-    console.log("req.body =>", req.body);
+    //console.log("req.file =>", req.file);
+   // console.log("req.body =>", req.body);
 
      if (!req.file) {
       return res.status(400).json({

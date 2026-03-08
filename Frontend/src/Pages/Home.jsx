@@ -6,10 +6,10 @@ import Fooddisplay from "../components/Fooddisplay";
 const Home = () => {
   const [category, setcategory] = useState("all");
   return (
-    <div>
+    <div className="mb-6">
       <Header />
       <ExploreMenu category={category} setcategory={setcategory} />
-      <Fooddisplay category={category} setcategory={setcategory} />
+      <Fooddisplay  category={category} setcategory={setcategory} />
     </div>
   );
 };

@@ -45,7 +45,7 @@ const handleStatusChange = async (orderId, status) => {
     }
 
   } catch (error) {
-    console.log(error)
+    //console.log(error)
     toast.error("Status update failed")
   }
 
@@ -53,7 +53,7 @@ const handleStatusChange = async (orderId, status) => {
 
 
   
-  console.log(orders)
+  //console.log(orders)
 return (
   <div className="p-4 md:p-8">
     <h2 className="text-xl md:text-2xl font-bold mb-6">Order Page</h2>

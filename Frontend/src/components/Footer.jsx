@@ -3,13 +3,13 @@ import { assets } from "../assets/assets"
 const Footer = () => {
   return (
     <footer id="footer" className="bg-gray-900 text-white py-10">
-      <div className="w-[90%] mx-auto flex flex-col md:flex-row gap-10 justify-between">
+      <div className="w-[90%] mx-auto items-center flex flex-col md:flex-row gap-10 justify-between">
 
         {/* LEFT */}
-        <div className="flex flex-col gap-4 max-w-sm">
+        <div className="flex flex-col items-center gap-4 max-w-sm">
           {/*<img src={assets.logo} className="w-32 text-white" /> */}
           <h1 className="font-bold text-3xl">CraveCart ..</h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-center text-gray-400">
              Choose from a diverse menu featuring a delectable array of dishes
             crafted with the finest ingredients and culinary expertise.
           </p>
@@ -34,7 +34,7 @@ const Footer = () => {
         {/* RIGHT */}
         <div className="flex flex-col gap-3">
           <h3 className="font-semibold text-lg">Get in Touch</h3>
-          <p className="text-gray-400 text-sm">+1-212-223174</p>
+          <p className="text-gray-400 text-sm">+1-653546-30</p>
           <p className="text-gray-400 text-sm cursor-pointer hover:text-white">
             Contact Us
           </p>
@@ -44,7 +44,7 @@ const Footer = () => {
 
       {/* BOTTOM LINE */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-500">
-        © 2026  CraveCart.Com   All rights reserved.
+         CraveCart@123gamil.Com   All rights reserved.
       </div>
     </footer>
   )

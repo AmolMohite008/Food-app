@@ -13,7 +13,7 @@ const genrateToken = (id) => {
 
 //Login User
 export const Login = async (req, res) => {
-  console.log("BODY:", req.body);
+ // console.log("BODY:", req.body);
 
 
   try{
@@ -61,7 +61,7 @@ export const Login = async (req, res) => {
 // SignUp or registerUser
 export const signUp = async (req, res) => {
   const { name, email, password } = req.body;
-  console.log(req.body);
+ // console.log(req.body);
   try {
     const userExists = await User.findOne({ email });
     if (userExists) {
@@ -70,7 +70,7 @@ export const signUp = async (req, res) => {
 
     const newuser = await User.create({ name, email, password });
 
-     console.log(newuser);
+    // console.log(newuser);
 
     //create JWT token  uparka function call kiya
     const token =  genrateToken(newuser._id);
@@ -78,8 +78,8 @@ export const signUp = async (req, res) => {
     //  Setting cookie for signup as well
     res.cookie("token", token, {
   httpOnly: true,
-  secure: false, // production me true
-  sameSite: "strict",
+  secure: true, // production me true
+  sameSite: "none",
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
     path: '/'              // Cookie available for all routes
 });
@@ -106,8 +106,8 @@ export const Logout = async (req, res) => {
     res.cookie("token", "", {
       httpOnly: true,
       expires: new Date(0), // Set cookie to expire immediately
-      secure: false,
-      sameSite: "strict",
+      secure: true,
+      sameSite: "none",
       path: '/'
     });
     res.status(200).json({

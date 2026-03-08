@@ -15,6 +15,7 @@ const Navbar = ({ setshowlogin }) => {
     const response = await axios.post(url + "/api/user/logout", {}, { withCredentials: true })
 
       setLoggedInUser(null)
+      window.location.reload();
 
     }catch(error){
 

@@ -18,7 +18,7 @@ import { protect } from "./Controllers/UserController.js";
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ 
-  origin:[ "http://localhost:5173", "http://localhost:5174"] ,// Your frontend URL admin and user bote can be use backeand at same time 
+  origin:[ "http://localhost:5173", "http://localhost:5174" ,"https://cravecart-js98.onrender.com" ,"https://cravecart-admin-ylp5.onrender.com"] ,// Your frontend URL admin and user bote can be use backeand at same time 
   credentials: true  // IMPORTANT: Allow cookies to be sent/received
 }));
 
