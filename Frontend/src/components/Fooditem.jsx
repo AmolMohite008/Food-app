@@ -29,13 +29,21 @@ const Fooditem = ({ id, name, price, description, image }) => {
         <div className='flex justify-between items-center mt-1'>
           <span className='font-bold text-sm  text-orange-400'>₹ {price}</span>
           { !cartitem[id] ? ( <button onClick={() => addToCart(id)} className='border rounded-md  px-2 py-0.5 text-md'>Add </button>) :(<div className='border flex items-center  gap-2 rounded-md px-2 py-0.5 text-xs'> 
-            <button onClick={() => removecart(id)} className="w-6 h-6 flex items-center justify-center 
-             font-bold text-2xl pb-1 bg-red-400 
-             rounded-full" > -</button>
+             {/* Minus */}
+      <button
+        onClick={() => removecart(id)}
+        className="w-6 h-6 pb-0.5 flex items-center justify-center rounded-full bg-red-400 text-white text-xl font-bold leading-[0] hover:bg-red-500 active:scale-95 transition"
+      >
+        −
+      </button>
             <span className='font-bold text-[14px]' >{cartitem[id]}</span>
-            <button onClick={() => addToCart(id) }className="w-6 h-6 flex items-center justify-center 
-             font-bold text-2xl pb-1 bg-green-400 
-             rounded-full" > +</button>
+           {/* Plus */}
+      <button
+        onClick={() => addToCart(id)}
+        className="w-6 h-6 flex pb-0.5 items-center justify-center rounded-full bg-green-400 text-white text-xl font-bold leading-[0] hover:bg-green-500 active:scale-95 transition"
+      >
+        +
+      </button>
             </div>) }
         </div>
 

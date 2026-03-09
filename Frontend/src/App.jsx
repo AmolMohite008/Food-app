@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/order" element={<Placeorder />} />
+          <Route path="/order" element={<Placeorder   setshowlogin={setshowlogin}  />} />
           <Route path="/myorder" element ={<MyOrder />}/>
         </Routes>
       </div>

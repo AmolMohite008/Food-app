@@ -4,8 +4,8 @@ import { StoreContext } from "../context/StoreContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Placeorder = () => {
-  const { food_list, getcartsubtotal, cartitem, setcartitem ,url } = useContext(StoreContext);
+const Placeorder = ({setshowlogin}) => {
+  const { food_list, getcartsubtotal, cartitem, setcartitem ,url, loggedInUser, setLoggedInUser } = useContext(StoreContext);
 
   const [address, setaddress] = useState({
     firstName: "",
@@ -39,6 +39,13 @@ const Placeorder = () => {
     // ek object banaya backend ko bhejne ke liye
     const orderData = { address: address, items: orderItems, amount: getcartsubtotal() + 5,};
    
+
+   // If user not logged in → show login popup
+  if (!loggedInUser) {
+    setshowlogin(true);
+    return;
+  }
+
     //Api call 
    const response = await axios.post(url + "/api/order/place", orderData, { withCredentials: true });
 

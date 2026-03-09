@@ -38,7 +38,7 @@ const Cart = () => {
                 </p>
                 <p
                   onClick={() => removecart(items._id)}
-                  className="w-[60px] text-center cursor-pointer"
+                  className="w-[60px] text-center text-red-600 cursor-pointer"
                 >
                   x
                 </p>
