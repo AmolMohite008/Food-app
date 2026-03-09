@@ -32,7 +32,7 @@ const Fooditem = ({ id, name, price, description, image }) => {
              {/* Minus */}
       <button
         onClick={() => removecart(id)}
-        className="w-6 h-6 pb-0.5 flex items-center justify-center rounded-full bg-red-400 text-white text-xl font-bold leading-[0] hover:bg-red-500 active:scale-95 transition"
+        className="w-6 h-6  flex items-center justify-center rounded-full bg-red-400 text-white text-xl font-bold leading-[0] hover:bg-red-500 active:scale-95 transition"
       >
         −
       </button>
@@ -40,7 +40,7 @@ const Fooditem = ({ id, name, price, description, image }) => {
            {/* Plus */}
       <button
         onClick={() => addToCart(id)}
-        className="w-6 h-6 flex pb-0.5 items-center justify-center rounded-full bg-green-400 text-white text-xl font-bold leading-[0] hover:bg-green-500 active:scale-95 transition"
+        className="w-6 h-6 flex  items-center justify-center rounded-full bg-green-400 text-white text-xl font-bold leading-[0] hover:bg-green-500 active:scale-95 transition"
       >
         +
       </button>
